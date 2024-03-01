@@ -7,9 +7,11 @@ export const getMediaDetails = async (id: string) => {
     `https://v2.sg.media-imdb.com/suggests/t/tt${id}.json`,
   );
   const imdbDataText = await imdbData.text();
-  const imdbDataJSON = JSON.parse(
-    imdbDataText.replace(`imdb$tt${id}(`, "").slice(0, -1),
-  ).d as { l: string; y: number; id: string; qid: "tvSeries" | "movie" }[];
+  const imdbDataJSON = (
+    JSON.parse(imdbDataText.replace(`imdb$tt${id}(`, "").slice(0, -1)) as {
+      d: { l: string; y: number; id: string; qid: "tvSeries" | "movie" }[];
+    }
+  ).d;
   const mediaData = imdbDataJSON.find((i) => i.id === `tt${id}`);
   const response = await fetch(
     `https://watchsomuch.to/Movies/ajTVTorrents.aspx?mid=${id}`,
