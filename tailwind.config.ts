@@ -1,5 +1,6 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import catppuccinPlugin from "@catppuccin/tailwindcss";
 
 export default {
   content: ["./src/**/*.tsx"],
@@ -10,5 +11,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [catppuccinPlugin({defaultFlavour: 'mocha'})],
 } satisfies Config;
