@@ -44,6 +44,11 @@ usable for me. (I do know that it's still in beta, and I am excited to see where
 The original website is hideous, and I spontaneously decided to make a better one. I'm not affiliated with the original
 website in any way, and I'm not making any money off of this project. It was also a way for me to try out the app router
 
+## Why Morpheus?
+
+Morpheus is the god of dreams in Greek mythology. Gemini and I thought it would be a fitting name for a website that
+lets you access movies and shows, which are often a form of escapism.
+
 ## Features
 
 - [x] See top movies
