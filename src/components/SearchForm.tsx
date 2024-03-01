@@ -2,8 +2,8 @@
 
 import { useFormState } from "react-dom";
 import { searchIMDB } from "~/actions/searchIMDB";
-import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { MediaLink } from "~/components/MediaLink";
 
 export const SearchForm = () => {
   const [state, formAction] = useFormState(searchIMDB, []);
@@ -13,7 +13,7 @@ export const SearchForm = () => {
 
   return (
     <form action={formAction} className={"mx-5 flex flex-col items-center"}>
-      <div className={"mt-5 flex w-1/2 items-center justify-center"}>
+      <div className={"mt-5 flex items-center justify-center xl:w-1/2"}>
         <input
           type={"search"}
           name={"search"}
@@ -39,22 +39,14 @@ export const SearchForm = () => {
           value={"submit"}
         />
       </div>
-      <div className={"flex flex-row flex-wrap justify-center"}>
+      <div className={"mt-5 flex flex-row flex-wrap justify-center"}>
         {state.map((item) => (
-          <a
+          <MediaLink
+            title={item.title}
+            image={item.image}
+            link={`/details/${item.id}`}
             key={item.id}
-            href={`/details/${item.id}`}
-            className="my-5 flex w-60 flex-col items-center text-mauve"
-          >
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={175}
-              height={250}
-              unoptimized
-            />
-            <span className={"mt-3"}>{item.title}</span>
-          </a>
+          />
         ))}
       </div>
     </form>

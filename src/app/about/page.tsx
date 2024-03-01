@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <main className="mx-auto w-1/2 p-4 text-peach">
+    <main className="mx-auto p-4 text-peach xl:w-1/2">
       <h1 className="text-center text-6xl text-peach">About</h1>
       <div
         className={

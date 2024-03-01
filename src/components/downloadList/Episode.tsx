@@ -30,7 +30,7 @@ export const Episode = ({
           <Link
             href={`/details/${titleId}/download/${torrent.id}`}
             className={
-              "m-1 flex flex-row gap-x-3 leading-relaxed underline decoration-green underline-offset-[6px]"
+              "m-1 flex flex-row gap-x-3 text-sm leading-relaxed underline decoration-green underline-offset-[6px] md:text-base md:text-peach"
             }
             onClick={() => setIsExpanded(!isExpanded)}
             key={torrent.id}

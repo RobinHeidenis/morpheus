@@ -8,7 +8,7 @@ export default async function DownloadPage({
   const data = await getDownloadDetails(params.id, params.downloadId);
 
   return (
-    <main className="mx-auto w-1/2 p-4 text-peach">
+    <main className="mx-auto p-4 text-peach xl:w-1/2">
       <h1 className="text-center text-6xl text-peach">Download</h1>
       <div
         className={
@@ -16,10 +16,14 @@ export default async function DownloadPage({
         }
       >
         <h2 className={"mt-5 text-xl"}>You&apos;re downloading:</h2>
-        <h3 className="text-md leading-6">{data.name}</h3>
+        <h3 className="text-md px-3 text-center leading-6">{data.name}</h3>
         <h4 className="mt-5 text-lg font-normal leading-5">Download info</h4>
-        <div className="mt-4 flex flex-col items-center text-text">
-          <table className={"table-auto border-collapse"}>
+        <div className="my-4 mt-4 flex flex-col items-center px-5 text-text">
+          <table
+            className={
+              "mx-5 w-full table-auto border-collapse break-all lg:max-w-4xl"
+            }
+          >
             <thead className={"bg-surface0"}>
               <tr>
                 <th className={"border border-surface1 p-2 text-start"}>
@@ -45,7 +49,7 @@ export default async function DownloadPage({
                 href={link.href}
                 key={link.title}
                 className={
-                  "w-96 rounded-3xl border border-green p-2 text-center"
+                  "w-full rounded-3xl border border-green p-2 px-10 text-center md:w-96"
                 }
               >
                 {link.title}

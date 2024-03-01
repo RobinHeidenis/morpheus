@@ -1,5 +1,5 @@
-import Image from "next/image";
 import * as cheerio from "cheerio";
+import { MediaLink } from "~/components/MediaLink";
 
 const getTopMoviesHTML = async () => {
   "use server";
@@ -8,8 +8,17 @@ const getTopMoviesHTML = async () => {
   const $ = cheerio.load(text);
   const movieElements = $(".item");
   return Array.from(movieElements).map((movie) => {
+    const imageURL = $(movie).find("img").attr("src");
     return {
       title: $($(movie).children()[1]).text() ?? "Unknown Movie",
+      images: {
+        small: imageURL?.replace("http", "https") ?? "",
+        large:
+          imageURL
+            ?.replace("PosterS", "PosterL")
+            ?.replace("http", "https")
+            ?.replace("_Small.jpg", "_Full.jpg") ?? "",
+      },
       image:
         $(movie)
           .find("img")
@@ -30,20 +39,12 @@ export const TopMoviesList = async () => {
   return (
     <>
       {movies.map((movie) => (
-        <a
+        <MediaLink
+          title={movie.title}
+          image={movie.image}
+          link={movie.link}
           key={movie.title}
-          href={movie.link}
-          className="my-5 flex w-60 flex-col items-center text-mauve"
-        >
-          <Image
-            src={movie.image ?? ""}
-            alt={movie.title}
-            width={175}
-            height={250}
-            unoptimized
-          />
-          <span className={"mt-3"}>{movie.title}</span>
-        </a>
+        />
       ))}
     </>
   );
