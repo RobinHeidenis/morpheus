@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "Morpheus",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.jpeg" }],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
