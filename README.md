@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://morpheus.fractum.nl">
-        <img src="public/icon-transparent.png" alt="Logo" width="80" height="80">
+        <img src="public/icon-transparent.png" alt="Logo" width="150" height="150">
     </a>
     <h1>Morpheus</h1>
     <p><i>Alternative frontend for watchsomuch.to</i></p>
