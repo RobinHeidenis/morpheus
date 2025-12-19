@@ -1,41 +1,51 @@
 {
-  "name": "watchsomuch-frontend-but-in-nextjs",
-  "version": "0.1.0",
+  "name": "morpheus",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.26.1",
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "format": "biome format",
+    "lint": "biome lint",
+    "check": "biome check"
   },
   "dependencies": {
-    "@catppuccin/tailwindcss": "^0.1.6",
-    "@headlessui/react": "^1.7.18",
-    "@t3-oss/env-nextjs": "^0.9.2",
-    "cheerio": "1.0.0-rc.12",
-    "next": "^14.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "zod": "^3.22.4"
+    "@tailwindcss/vite": "^4.0.6",
+    "@tanstack/react-devtools": "^0.7.0",
+    "@tanstack/react-form": "^1.0.0",
+    "@tanstack/react-query": "^5.66.5",
+    "@tanstack/react-query-devtools": "^5.84.2",
+    "@tanstack/react-router": "^1.132.0",
+    "@tanstack/react-router-devtools": "^1.132.0",
+    "@tanstack/react-router-ssr-query": "^1.131.7",
+    "@tanstack/react-start": "^1.132.0",
+    "@tanstack/router-plugin": "^1.132.0",
+    "@tanstack/zod-adapter": "^1.141.6",
+    "cheerio": "^1.1.2",
+    "lucide-react": "^0.544.0",
+    "nitro": "latest",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.0.6",
+    "vite-tsconfig-paths": "^5.1.4",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.2",
-    "@types/node": "^20.11.20",
-    "@types/react": "^18.2.57",
-    "@types/react-dom": "^18.2.19",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.1.0",
-    "postcss": "^8.4.34",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
-  },
-  "ct3aMetadata": {
-    "initVersion": "7.27.0"
-  },
-  "packageManager": "pnpm@8.15.2"
+    "@biomejs/biome": "2.2.4",
+    "@catppuccin/tailwindcss": "^1.0.0",
+    "@tanstack/devtools-vite": "^0.3.11",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "jsdom": "^27.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^7.1.7",
+    "web-vitals": "^5.1.0"
+  }
 }
+
