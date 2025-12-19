@@ -2,6 +2,7 @@
   "name": "morpheus",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.26.1",
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",
@@ -47,3 +48,4 @@
     "web-vitals": "^5.1.0"
   }
 }
+
