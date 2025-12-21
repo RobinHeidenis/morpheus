@@ -22,9 +22,9 @@ const FILTER_PATTERNS = {
 		x265: /x265|h\.?265|hevc/i,
 	},
 	hdr: {
-		HDR: /\bhdr\b/i,
 		"HDR10+": /hdr10\+|hdr10plus/i,
-		HDR10: /hdr10(?!\+)/i,
+		HDR10: /hdr10(?![\+p])/i,
+		HDR: /\bhdr\b(?!10)/i,
 	},
 	audio: {
 		Atmos: /atmos/i,
