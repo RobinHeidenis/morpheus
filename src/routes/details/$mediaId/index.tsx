@@ -1,24 +1,36 @@
 import { Season } from "@/components/season";
 import { DownloadFilters } from "@/components/download-filters";
 import { getMediaDetails } from "@/data/media-details";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useMemo } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useMemo } from "react";
 import { matchesFilter, type FilterOptions } from "@/utils/download-filters";
+import { zodValidator } from "@tanstack/zod-adapter";
+import z from "zod";
+
+const mediaDetailsSearchSchema = z.object({
+	quality: z.array(z.string()).catch([]),
+	codec: z.array(z.string()).catch([]),
+	hdr: z.array(z.string()).catch([]),
+	audio: z.array(z.string()).catch([]),
+});
 
 export const Route = createFileRoute("/details/$mediaId/")({
 	component: RouteComponent,
 	loader: ({ params }) => getMediaDetails({ data: { id: params.mediaId } }),
+	validateSearch: zodValidator(mediaDetailsSearchSchema),
 });
 
 function RouteComponent() {
 	const details = Route.useLoaderData();
 	const params = Route.useParams();
-	const [filters, setFilters] = useState<FilterOptions>({
-		quality: [],
-		codec: [],
-		hdr: [],
-		audio: [],
-	});
+	const navigate = useNavigate({ from: Route.fullPath });
+	const filters = Route.useSearch();
+
+	const handleFilterChange = (newFilters: FilterOptions) => {
+		navigate({
+			search: () => newFilters,
+		});
+	};
 
 	const filteredDownloads = useMemo(() => {
 		if (details.type !== "movie") return [];
@@ -38,7 +50,10 @@ function RouteComponent() {
 			</p>
 			{details.type === "movie" ? (
 				<>
-					<DownloadFilters filters={filters} onFilterChange={setFilters} />
+					<DownloadFilters
+						filters={filters}
+						onFilterChange={handleFilterChange}
+					/>
 					<div
 						className={
 							"mt-3 flex w-full flex-col items-start rounded-lg border border-ctp-mauve p-3"
