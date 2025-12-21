@@ -23,7 +23,7 @@ const FILTER_PATTERNS = {
 	},
 	hdr: {
 		"HDR10+": /hdr10\+|hdr10plus/i,
-		HDR10: /hdr10(?![\+p])/i,
+		HDR10: /hdr10(?!\+|plus)/i,
 		HDR: /\bhdr\b(?!10)/i,
 	},
 	audio: {

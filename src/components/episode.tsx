@@ -53,7 +53,6 @@ export const Episode = ({
 								className={
 									"m-1 flex flex-row gap-x-3 text-sm leading-relaxed underline decoration-green underline-offset-[6px] md:text-base md:text-peach"
 								}
-								onClick={() => setIsExpanded(!isExpanded)}
 								key={torrent.id}
 							>
 								{torrent.title} ({torrent.size})
